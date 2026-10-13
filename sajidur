@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A little love message ❤️">
+<meta property="og:title" content="For My Love ❤️">
+<meta property="og:description" content="I miss you very much... Jldi aa jawww 🥺❤️">
+<title>For My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 25%),
+        linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3d5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    text-align: center;
+    padding: 45px 25px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 70px rgba(120,0,60,.25);
+    position: relative;
+    z-index: 5;
+}
+
+.big-heart {
+    font-size: 100px;
+    animation: beat 1.1s infinite;
+    filter: drop-shadow(0 10px 20px rgba(120,0,60,.3));
+}
+
+@keyframes beat {
+    0%,100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.12); }
+}
+
+h1 {
+    font-size: clamp(38px, 8vw, 65px);
+    margin: 10px 0 20px;
+    text-shadow: 0 4px 15px rgba(100,0,50,.3);
+}
+
+.subtitle {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+.miss {
+    margin: 28px 0;
+    font-size: clamp(23px, 5vw, 34px);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.question {
+    margin-top: 35px;
+    font-size: clamp(27px, 6vw, 42px);
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 25px;
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+button {
+    border: 0;
+    border-radius: 50px;
+    padding: 15px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(100,0,50,.25);
+    transition: transform .25s, background .25s;
+}
+
+.yes {
+    background: #ff1493;
+    color: white;
+}
+
+.yes:hover {
+    transform: scale(1.1);
+    background: #e6007e;
+}
+
+.no {
+    background: white;
+    color: #e6007e;
+}
+
+.share {
+    margin-top: 25px;
+    background: rgba(255,255,255,.9);
+    color: #c21868;
+}
+
+.share:hover {
+    transform: scale(1.05);
+}
+
+#shareStatus {
+    margin-top: 10px;
+    min-height: 25px;
+}
+
+.meeting {
+    display: none;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.18);
+    animation: show .7s ease;
+}
+
+.meeting h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.meeting p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:600px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 35px 18px;
+    }
+
+    .big-heart {
+        font-size: 75px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 190px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="big-heart">💗</div>
+
+    <h1>For My Love ❤️</h1>
+
+    <p class="subtitle">
+        You are not just someone I love...<br>
+        You are the reason my heart smiles. 🥹💕
+    </p>
+
+    <div class="miss">
+        I MISS YOU VERY MUCH 🥺💗<br>
+        Jldi aa jawwwww ❤️🫶🏻
+    </div>
+
+    <p class="message">
+        Every moment without you feels incomplete. 💔<br>
+        I just want to see your smile, hear your voice,<br>
+        and spend some beautiful time with you. 🥺❤️
+    </p>
+
+    <div class="question" id="question">
+        Do you love me? 🥺💖
+    </div>
+
+    <div class="buttons">
+        <button class="yes" onclick="sayYes()">YES ❤️</button>
+        <button class="no" id="noButton" onclick="sayNo()">NO 😭</button>
+    </div>
+
+    <button class="share" onclick="sharePage()">
+        🔗 Share This Love Page
+    </button>
+
+    <div id="shareStatus"></div>
+
+    <div class="meeting" id="meeting">
+        <h2>YAYYYYY! 🥹❤️</h2>
+
+        <p>
+            I knew your heart would say YES! 💕<br><br>
+            Now there is only one thing left...<br>
+            <strong>Come meet me soon! 🫂❤️</strong><br><br>
+            I miss you so much.<br>
+            Jldi aa jawwwww 🥺💗
+        </p>
+    </div>
+
+</div>
+
+<script>
+const noButton = document.getElementById("noButton");
+const question = document.getElementById("question");
+const meeting = document.getElementById("meeting");
+const shareStatus = document.getElementById("shareStatus");
+
+let noCount = 0;
+
+function sayYes() {
+    question.innerHTML = "I LOVE YOU TOO! 🥹💖";
+
+    meeting.style.display = "block";
+
+    createHeartExplosion();
+
+    meeting.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function sayNo() {
+    noCount++;
+
+    const messages = [
+        "Are you sure? 🥺",
+        "Think again 😭❤️",
+        "Pleaseee 🥹💗",
+        "My heart is breaking 💔",
+        "Don't do this to me 😭💕",
+        "One YES please 🥺❤️",
+        "Try YES instead 😘💖"
+    ];
+
+    noButton.innerHTML =
+        messages[Math.min(noCount - 1, messages.length - 1)];
+
+    /*
+       Move the NO button to a random position.
+       It remains clickable, but makes saying NO
+       much harder. 😜
+    */
+    noButton.style.position = "fixed";
+
+    const maxX = Math.max(
+        10,
+        window.innerWidth - noButton.offsetWidth - 10
+    );
+
+    const maxY = Math.max(
+        10,
+        window.innerHeight - noButton.offsetHeight - 10
+    );
+
+    noButton.style.left =
+        Math.floor(Math.random() * maxX) + "px";
+
+    noButton.style.top =
+        Math.floor(Math.random() * maxY) + "px";
+
+    createHearts(6);
+}
+
+async function sharePage() {
+
+    const url = window.location.href;
+
+    /*
+       If the page is online, this is the actual
+       public URL that can be shared.
+    */
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: "For My Love ❤️",
+                text: "Someone made this little love page for you 🥺❤️",
+                url: url
+            });
+
+            shareStatus.innerHTML =
+                "Shared successfully! 💕";
+
+            return;
+
+        } catch (error) {
+            if (error.name === "AbortError") {
+                return;
+            }
+        }
+    }
+
+    try {
+        await navigator.clipboard.writeText(url);
+
+        shareStatus.innerHTML =
+            "💗 Link copied! Send it to your love.";
+
+    } catch (error) {
+
+        const temp = document.createElement("input");
+
+        temp.value = url;
+
+        document.body.appendChild(temp);
+
+        temp.select();
+
+        document.execCommand("copy");
+
+        temp.remove();
+
+        shareStatus.innerHTML =
+            "💗 Link copied! Send it to your love.";
+    }
+}
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const heartList = [
+        "❤️",
+        "💗",
+        "💖",
+        "💕",
+        "💓",
+        "💞",
+        "💘",
+        "🥰"
+    ];
+
+    heart.innerHTML =
+        heartList[
+            Math.floor(Math.random() * heartList.length)
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (18 + Math.random() * 35) + "px";
+
+    const duration =
+        4 + Math.random() * 5;
+
+    heart.style.animationDuration =
+        duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, duration * 1000);
+}
+
+function createHearts(number) {
+
+    for (let i = 0; i < number; i++) {
+        setTimeout(createHeart, i * 120);
+    }
+}
+
+function createHeartExplosion() {
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createHeart, i * 70);
+    }
+}
+
+/* Continuous floating hearts */
+setInterval(createHeart, 700);
+</script>
+
+</body>
+</html>
